@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   containerButton: {
     backgroundColor: theme.button,
     height: 60,
-    width: "90%",
+    alignSelf: "stretch",
     margin: 16,
     borderRadius: 16,
     alignItems: "center",
