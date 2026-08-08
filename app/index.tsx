@@ -2,20 +2,37 @@ import { styles } from "@/components/styles";
 import SuperButton from "@/components/SuperButton";
 import SuperInput from "@/components/SuperTextInput";
 import { SuperTitle } from "@/components/SuperTitle";
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 import { useState } from "react";
-import TodoItem from "@/components/TodoItem";
+import TodoItem, { ITodoItem } from "@/components/TodoItem";
 
 export default function Index() {
   const [newItem, setNewItem] = useState("");
+  const [todos, setTodos] = useState<ITodoItem[]>([]);
+
+  const addItem = () => {
+    const item: ITodoItem = {
+      id: new Date().toString(),
+      title: newItem,
+      completed: false,
+    };
+
+    //todos.push(newItem); imutavel não permite
+    setTodos([item, ...todos]);
+
+    //limpo campo
+    setNewItem("");
+  }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <SuperTitle title="Lista de compras"></SuperTitle>
       <SuperInput value={newItem} onChangeText={setNewItem} />
-      <SuperButton title="novo item" />
+      <SuperButton title="novo item" onPress={addItem} />
 
-      <TodoItem></TodoItem>
-    </View>
+      {todos.map((todo) => {
+        return <TodoItem title={todo.title} />;
+      })}
+    </ScrollView>
   );
 }
