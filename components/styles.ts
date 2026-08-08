@@ -32,4 +32,13 @@ export const styles = StyleSheet.create({
     fontWeight: "200",
     color: "white",
   },
+  textInputContainer: {
+    height: 50,
+    alignSelf: "stretch",
+    marginTop: 10,
+    borderRadius: 16,
+    paddingHorizontal: 16,
+    backgroundColor: "#222",
+    color: "white",
+  }
 });
