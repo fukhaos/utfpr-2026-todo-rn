@@ -8,11 +8,16 @@ export const theme = {
 };
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: theme.background,
+    padding: 16,
+  },
   containerButton: {
     backgroundColor: theme.button,
     height: 60,
     alignSelf: "stretch",
-    margin: 16,
+    marginTop: 16,
     borderRadius: 16,
     alignItems: "center",
     justifyContent: "center",
@@ -24,7 +29,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    fontWeight: "bold",
+    fontWeight: "200",
     color: "white",
   },
 });

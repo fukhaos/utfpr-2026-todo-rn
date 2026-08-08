@@ -1,15 +1,12 @@
+import { styles } from "@/components/styles";
 import SuperButton from "@/components/SuperButton";
-import { Text, View } from "react-native";
+import { SuperTitle } from "@/components/SuperTitle";
+import { View } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <View style={styles.container}>
+      <SuperTitle title="Lista de compras"></SuperTitle>
       <SuperButton title="novo item" />
     </View>
   );

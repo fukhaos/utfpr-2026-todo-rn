@@ -6,6 +6,13 @@ interface Props {
   upperCase?: boolean;
 }
 
+/**
+ * Titulo principal do app
+ * @param title Texto do titulo
+ * @param upperCase Se vai ficar tudo maisculo
+ * @returns um titulo
+ */
+
 export function SuperTitle(props: Props) {
   let content = props.title;
 
