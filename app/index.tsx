@@ -11,8 +11,10 @@ export default function Index() {
   const [todos, setTodos] = useState<ITodoItem[]>([]);
 
   const addItem = () => {
+    if (newItem.length < 4) return;
+
     const item: ITodoItem = {
-      id: new Date().toString(),
+      id: Date.now().toString(),
       title: newItem,
       completed: false,
     };
@@ -24,6 +26,17 @@ export default function Index() {
     setNewItem("");
   }
 
+  const updateItem = (id) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        if (todo?.id === id) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      });
+    });
+  };
+
   return (
     <ScrollView style={styles.container}>
       <SuperTitle title="Lista de compras"></SuperTitle>
@@ -31,7 +44,7 @@ export default function Index() {
       <SuperButton title="novo item" onPress={addItem} />
 
       {todos.map((todo) => {
-        return <TodoItem title={todo.title} />;
+        return <TodoItem key={todo?.id} todo={todo} updateItem={updateItem} />;
       })}
     </ScrollView>
   );
