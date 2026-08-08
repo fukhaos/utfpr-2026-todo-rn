@@ -27,6 +27,12 @@ export const styles = StyleSheet.create({
     fontWeight: "300",
     color: theme.text,
   },
+  description: {
+    fontSize: 16,
+    fontWeight: "300",
+    marginTop: 6,
+    color: theme.button,
+  },
   title: {
     fontSize: 30,
     fontWeight: "200",
@@ -40,5 +46,24 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: "#222",
     color: "white",
+  },
+  card: {
+    justifyContent: "center",
+    height: 80,
+    paddingHorizontal: 16,
+    alignSelf: "stretch",
+    backgroundColor: "#111",
+    borderRadius: 16,
+    marginTop: 16,
+  },
+  checkbox: {
+    position: "absolute",
+    right: 16,
+    width: 36,
+    height: 36,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
+    backgroundColor: theme.button,
   }
 });

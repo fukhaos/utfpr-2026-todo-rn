@@ -4,6 +4,7 @@ import SuperInput from "@/components/SuperTextInput";
 import { SuperTitle } from "@/components/SuperTitle";
 import { View } from "react-native";
 import { useState } from "react";
+import TodoItem from "@/components/TodoItem";
 
 export default function Index() {
   const [newItem, setNewItem] = useState("");
@@ -14,7 +15,7 @@ export default function Index() {
       <SuperInput value={newItem} onChangeText={setNewItem} />
       <SuperButton title="novo item" />
 
-      <SuperTitle title={newItem}></SuperTitle>
+      <TodoItem></TodoItem>
     </View>
   );
 }
