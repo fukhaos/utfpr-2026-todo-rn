@@ -34,6 +34,10 @@ export default function Index() {
     );
   };
 
+  const deleteItem = (id: string) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <ScrollView style={styles.container}>
       <SuperTitle title="Lista de compras"></SuperTitle>
@@ -41,7 +45,14 @@ export default function Index() {
       <SuperButton title="novo item" onPress={addItem} />
 
       {todos.map((todo) => {
-        return <TodoItem key={todo?.id} todo={todo} updateItem={updateItem} />;
+        return (
+          <TodoItem
+            key={todo?.id}
+            todo={todo}
+            updateItem={updateItem}
+            deleteItem={deleteItem}
+          />
+        );
       })}
     </ScrollView>
   );
