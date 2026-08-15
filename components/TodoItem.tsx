@@ -3,7 +3,7 @@ import { styles } from "./styles";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
-interface Todo {
+export interface Todo {
   id: string;
   title: string;
   completed: boolean;
@@ -22,7 +22,11 @@ export default function TodoItem({ todo, updateItem }: ITodoItem) {
   return (
     <TouchableOpacity style={styles.card} onPress={updatedTodo}>
       <Text style={styles.titleButton}>{todo.title}</Text>
-      <Text style={styles.description}>{todo.id}</Text>
+      <Text style={styles.description}>
+        {todo.completed
+          ? "Concluída"
+          : "Toque para concluir · segure para excluir"}
+      </Text>
 
       <View style={styles.checkbox}>
         {todo.completed && (
